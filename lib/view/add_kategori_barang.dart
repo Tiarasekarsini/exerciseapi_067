@@ -14,10 +14,12 @@ class AddKategoriBarang extends StatefulWidget {
 
 class _AddKategoriBarangState extends State<AddKategoriBarang> {
   final kategoriBarangController = KategoriBarangController();
+  int? id;
   String? nama;
 
   void addKategoriBarang() async {
-    KategoriBarangModel kategoriBarang = KategoriBarangModel(nama: nama!);
+    KategoriBarangModel kategoriBarang =
+        KategoriBarangModel(nama: nama!, id: id!);
     await kategoriBarangController.addKategoriBarang(kategoriBarang);
   }
 
