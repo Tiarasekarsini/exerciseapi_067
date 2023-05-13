@@ -25,6 +25,7 @@ class KategoriBarangController {
 
   Future addKategoriBarang(KategoriBarangModel kategoriBarang) async {
     var result = await http.post(Uri.parse("${apiUrl}barang/addKB/"), body: {
+      'id_kategori_barang': kategoriBarang.id,
       "nama_kategori_barang": kategoriBarang.nama,
     });
     if (result.statusCode == 200) {
