@@ -40,9 +40,10 @@ class _KategoriBarangState extends State<KategoriBarang> {
         itemCount: listKategoriBarang.length,
         itemBuilder: (context, index) {
           return Card(
-            child: ListTile(
-              title: Text(listKategoriBarang[index].nama),
-              trailing: IconButton(
+              child: ListTile(
+            title: Text(listKategoriBarang[index].nama),
+            trailing: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+              IconButton(
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -52,8 +53,12 @@ class _KategoriBarangState extends State<KategoriBarang> {
                 },
                 icon: const Icon(Icons.edit),
               ),
-            ),
-          );
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.delete),
+              )
+            ]),
+          ));
         },
       )),
       floatingActionButton: FloatingActionButton(
