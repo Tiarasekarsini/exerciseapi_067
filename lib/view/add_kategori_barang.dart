@@ -68,6 +68,19 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
               },
               child: const Text('Simpan'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const KategoriBarang())));
+
+                var snackBar = const SnackBar(
+                    content: Text('Batal menambahkan kategori barang'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
+              child: const Text('Batalkan'),
+            ),
           ],
         ),
       ),
