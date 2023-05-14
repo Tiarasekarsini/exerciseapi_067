@@ -88,9 +88,6 @@ class _KategoriBarangState extends State<KategoriBarang> {
                                     listKategoriBarang.removeAt(index);
                                   });
                                 });
-                                setState(() {
-                                  listKategoriBarang.removeAt(index);
-                                });
 
                                 var snackBar = const SnackBar(
                                     content: Text('Data Telah Terhapus'));
