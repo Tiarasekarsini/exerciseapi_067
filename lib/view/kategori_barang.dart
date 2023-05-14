@@ -29,6 +29,12 @@ class _KategoriBarangState extends State<KategoriBarang> {
     });
   }
 
+  void deleteKategoriBarang(KategoriBarangModel kategoriBarangModel) {
+    setState(() {
+      listKategoriBarang.remove(kategoriBarangModel);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +61,47 @@ class _KategoriBarangState extends State<KategoriBarang> {
                 icon: const Icon(Icons.edit),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Alert Box'),
+                          content: Text(
+                              'Apakah anda yakin ingin menghapus data ini?'),
+                          actions: [
+                            TextButton(
+                              child: Text('No'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              child: Text('Yes'),
+                              onPressed: () async {
+                                Navigator.pop(context);
+                                kategoriBarangController
+                                    .deleteKategoriBarang(
+                                        listKategoriBarang[index].id)
+                                    .then((value) {
+                                  setState(() {
+                                    listKategoriBarang.removeAt(index);
+                                  });
+                                });
+                                setState(() {
+                                  listKategoriBarang.removeAt(index);
+                                });
+
+                                var snackBar = const SnackBar(
+                                    content: Text('Data Telah Terhapus'));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              },
+                            )
+                          ],
+                        );
+                      });
+                },
                 icon: const Icon(Icons.delete),
               )
             ]),
