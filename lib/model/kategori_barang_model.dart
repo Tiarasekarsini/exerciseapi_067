@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class KategoriBarangModel {
-  final int id;
+  var id;
   final String nama;
   KategoriBarangModel({
-    required this.id,
+    this.id,
     required this.nama,
   });
 
@@ -35,7 +35,7 @@ class KategoriBarangModel {
   String toJson() => json.encode(toMap());
 
   factory KategoriBarangModel.fromJson(String source) =>
-      KategoriBarangModel.fromMap(json.decode(source));
+      KategoriBarangModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() => 'KategoriBarangModel(id: $id, nama: $nama)';
