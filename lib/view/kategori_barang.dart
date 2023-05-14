@@ -99,7 +99,7 @@ class _KategoriBarangState extends State<KategoriBarang> {
                         );
                       });
                 },
-                icon: const Icon(Icons.delete),
+                icon: const Icon(Icons.delete_outline_rounded),
               )
             ]),
           ));
