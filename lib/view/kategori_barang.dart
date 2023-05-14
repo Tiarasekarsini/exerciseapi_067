@@ -48,8 +48,9 @@ class _KategoriBarangState extends State<KategoriBarang> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) =>
-                              const UpdateKategoriBarang())));
+                          builder: ((context) => UpdateKategoriBarang(
+                              namaAsal: listKategoriBarang[index].nama,
+                              id: listKategoriBarang[index].id))));
                 },
                 icon: const Icon(Icons.edit),
               ),
